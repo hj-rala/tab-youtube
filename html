@@ -1,0 +1,42 @@
+
+//video btn
+$('.vBtn > div a').each(function(){
+  $(this).bind('click',function(e){
+    e.preventDefault();
+    $('.vBtn div a').parent().removeClass('on');
+    $(this).parent().addClass('on');
+
+
+    var videoid = $(this).attr('id');
+    $('.viewVideo iframe').remove();
+    $('<iframe width="100%" frameborder="0" allowfullscreen></iframe>')
+    .attr('src', 'https://www.youtube.com/embed/' + videoid +'?version=2&autoplay=0&loop=1&autohide=1&controls=1&showinfo=0&rel=0&wmode=opaque')
+    .appendTo('.viewVideo');
+  });
+});
+$('.vBtn > div:eq(0) a').click();
+
+
+
+
+
+<div class="video">
+  <div class="viewVideo"></div>
+</div>
+<div class="vBtn">
+  <div><a href="javascript:;" id="3P1CnWI62Ik"><span class="line">원수토어</span> <span class="line">바이럴 무비</span></a></div>
+  <div class="soon"><a href="javascript:;" id="dyRsYk0LyA8"><span class="line">COMING</span><span class="line"> SOON!!</span></a></div>
+  <div class="soon"><a href="javascript:;" id="xLD8oWRmlAE"><span class="line">COMING</span><span class="line"> SOON!!</span></a></div>
+</div>
+
+
+
+
+/* video */
+.video {background: url('../images/main/img_video.png') 0 0 no-repeat; background-size: 100%; max-width: 980px; margin: 0 auto;}
+.video .tabVis {width: 100%; display: none; margin: 0 auto;}
+.video .tabVis video {width: 100%;}
+.viewVideo {position:relative; padding-bottom:56.25%; height:0; }
+.viewVideo iframe,
+.viewVideo object,
+.viewVideo embed {position:absolute; top:0; left:0; width:100%; height:100%;}
